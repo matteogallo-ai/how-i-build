@@ -39,7 +39,7 @@ agents review it, and I read the result and merge.
    Proof: [praxis#7](https://github.com/matteogallo-ai/praxis/pull/7) — with the clock
    set to 2029, six tests failed; after the fix the suite passes at today, 2029 and 2040.
 
-5. **A rule exists only because something went wrong.** Each rule in
+5. **A rule exists only because something went wrong.** Each numbered rule in
    [RULES.md](RULES.md) links to the incident that created it.
    Proof: my review of a live Praxis briefing found risk estimates labelled as
    first-party facts, which no test had caught; the validator was fixed and the review
@@ -58,8 +58,8 @@ agents review it, and I read the result and merge.
 
 The three repos were built from August 2026. In early November (2026-11-02 to 2026-11-04)
 I had an independent agent audit Verity and PromptLang, and hardened all three; the linked
-pull requests come from that pass, and the numbered rules are what it taught me. The rules
-are days old; the repos show how far each one is applied today. One target moved during that pass;
+pull requests come from that pass, and the numbered rules are what it taught me. The repos
+show how far each rule is applied today. One target moved during that pass;
 [RULES.md P1](RULES.md#p1-a-target-is-set-by-the-need-and-is-not-moved-to-fit-a-run-a-miss-is-published)
 gives the facts against it.
 
