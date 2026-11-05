@@ -1,6 +1,6 @@
 # How I build
 
-I own three small systems end to end, and everything about them is clickable.
+I own three systems end to end, and everything about them is clickable.
 
 The three systems are [Verity](https://github.com/matteogallo-ai/verity) (a RAG agent
 that cites or refuses), [Praxis](https://github.com/matteogallo-ai/praxis) (a multi-stage
