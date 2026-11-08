@@ -7,7 +7,7 @@ that cites or refuses) and [PromptLang](https://github.com/matteogallo-ai/prompt
 language for LLM prompts, published on npm). The experiment is
 [Praxis](https://github.com/matteogallo-ai/praxis), a 7-stage analysis pipeline: compared
 blind with a single model call 9.8× cheaper, on one question, it did no better
-([result](https://github.com/matteogallo-ai/praxis/blob/bfad47e21f0d191d5c7cf57993932a640c3453d2/benchmarks/review/q12/grades.md)). I decide what gets built and how it is
+([result](https://github.com/matteogallo-ai/praxis/blob/bfad47e21f0d191d5c7cf57993932a640c3453d2/README.md#status)). I decide what gets built and how it is
 judged: the architecture and its trade-offs, the definition of done, the evaluation
 protocols and the cost caps.
 
