@@ -183,4 +183,4 @@ here so the move can be challenged.
 - Verity: 13 findings, among them a judge that read the string `"false"` as supported.
   Some findings stay open, with the reason. [verity#28](https://github.com/matteogallo-ai/verity/pull/28)
 - PromptLang: 23 findings, fixed in #23–#31 or refuted in whole or in part (5) with
-  evidence; one (C23, process) acknowledged. [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32)
+  evidence; one (C23, process) left open. [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32)
