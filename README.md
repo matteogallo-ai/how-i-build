@@ -1,45 +1,50 @@
 # How I build
 
-I own three systems end to end, and everything about them is clickable.
+Three systems, the rules I build them by, and the pull request behind each rule.
 
 The three systems are [Verity](https://github.com/matteogallo-ai/verity) (a RAG agent
 that cites or refuses), [Praxis](https://github.com/matteogallo-ai/praxis) (a multi-stage
 briefing pipeline) and [PromptLang](https://github.com/matteogallo-ai/promptlang) (a typed
 language for LLM prompts, published on npm). I decide what gets built and how it is
-judged: the specs, the architecture and its trade-offs, the definition of done, the
-evaluation protocols and the cost caps. Coding agents write most of the code, independent
-agents review it, and I read the result and merge.
+judged: the architecture and its trade-offs, the definition of done, the evaluation
+protocols and the cost caps.
+
+Built with coding agents: I write the specs, review the pull requests and their tests, and answer for what gets merged.
 
 ## If you have two minutes
 
 - [promptlang#39](https://github.com/matteogallo-ai/promptlang/pull/39): the AI linter measured at 30% precision, not distinguishable from the 20% bound, published as it came out.
-- [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32): an independent audit, 23 findings, each fixed, refuted or acknowledged.
+- [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32): an independent audit, 23 findings, each fixed, refuted or left open.
 - [RULES.md P1](RULES.md#p1-a-target-is-set-by-the-need-and-is-not-moved-to-fit-a-run-a-miss-is-published): the one target that moved, with the facts against it, set out to be challenged.
 
 ## The method in five principles
 
-1. **A result is published as it came out.** The review plan is committed before the
+Each principle is a rule of [RULES.md](RULES.md), and each proof is a pull request whose
+claim can be checked from GitHub.
+
+1. **A result is published as it came out** ([R7](RULES.md#r7-a-human-review-is-pre-registered-and-its-result-is-published-as-it-came-out)). The review plan is committed before the
    review.
    Proof: [promptlang#39](https://github.com/matteogallo-ai/promptlang/pull/39) — the
    pre-registered human review measured the AI linter's precision at 30% (12/40, 95% CI
    18–45%), which does not distinguish it from the 20% lower bound already published.
 
-2. **No agent report is trusted until something independent checks it.** A context-free
+2. **No agent report is trusted until something independent checks it** ([P2](RULES.md#p2-a-context-free-agent-audits-main-each-finding-is-fixed-refuted-or-left-open-in-writing)). A context-free
    agent audits `main`; each finding is fixed, refuted or left open, in writing.
    Proof: [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32) — 23
    findings, fixes in #23–#31, 5 refuted in whole or in part, with evidence.
 
-3. **Spending is capped in code.** Each request reserves its worst-case cost before it
+3. **Spending is capped in code** ([R5](RULES.md#r5-a-spending-cap-reserves-each-requests-worst-case-before-sending-it)). Each request reserves its worst-case cost before it
    is sent.
    Proof: [praxis#22](https://github.com/matteogallo-ai/praxis/pull/22) — the old cap
    counted only recorded spend, so requests in flight and timeouts could exceed it. The
    PR states the gap it leaves.
 
-4. **A bug is shown red before it is fixed.**
-   Proof: [praxis#7](https://github.com/matteogallo-ai/praxis/pull/7) — with the clock
-   set to 2029, six tests failed; after the fix the suite passes at today, 2029 and 2040.
+4. **No test breaks as time passes** ([R3](RULES.md#r3-no-test-breaks-as-time-passes)).
+   Proof: [praxis#7](https://github.com/matteogallo-ai/praxis/pull/7) — a CI job runs the
+   whole suite with the clock at 2029 and at 2040 on every pull request. The red run before
+   the fix (six tests failing at 2029) is reported in the PR; its log was not kept.
 
-5. **A rule exists only because something went wrong.** Each numbered rule in
+5. **A rule exists only because something went wrong** ([R13](RULES.md#r13-a-human-reads-real-output-the-review-finds-what-tests-miss)). Each numbered rule in
    [RULES.md](RULES.md) links to the incident that created it.
    Proof: my review of a live Praxis briefing found risk estimates labelled as
    first-party facts, which no test had caught; the validator was fixed and the review
@@ -71,8 +76,8 @@ linked from these files (not other links or anchors), and fails if one does not 
 ## FAQ
 
 **Why do some PRs merge in minutes?** Most are opened once the tests and a fresh-context
-review have run on the branch; then CI (1 to 10 minutes) and my read. Not all: small docs
-PRs such as [praxis#27](https://github.com/matteogallo-ai/praxis/pull/27) carry no review.
+agent review have run on the branch; then CI (1 to 10 minutes) and my review. Small docs
+PRs such as [praxis#27](https://github.com/matteogallo-ai/praxis/pull/27) skip the agent review.
 Example: [praxis#22](https://github.com/matteogallo-ai/praxis/pull/22), open 7 minutes, lists its branch fixes and four rejected findings.
 
 ## License
