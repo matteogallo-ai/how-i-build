@@ -2,11 +2,11 @@
 
 Two systems and one experiment, the rules I build them by, and the pull request behind each rule.
 
-The two systems are [Verity](https://github.com/matteogallo-ai/verity) (a RAG agent
-that cites or refuses) and [PromptLang](https://github.com/matteogallo-ai/promptlang) (a typed
+The two systems are [Verity](https://github.com/matteogallo-ai/verity) (question answering
+over documents that cites the exact passage or refuses) and [PromptLang](https://github.com/matteogallo-ai/promptlang) (a typed
 language for LLM prompts, published on npm). The experiment is
-[Praxis](https://github.com/matteogallo-ai/praxis), a 7-stage analysis pipeline: compared
-blind with a single model call 9.8× cheaper, on one question, it did no better
+[Praxis](https://github.com/matteogallo-ai/praxis), a 7-stage analysis pipeline: on one question,
+the blind reviewer preferred a single model call 9.8× cheaper
 ([result](https://github.com/matteogallo-ai/praxis/blob/bfad47e21f0d191d5c7cf57993932a640c3453d2/README.md#status)). I decide what gets built and how it is
 judged: the architecture and its trade-offs, the definition of done, the evaluation
 protocols and the cost caps.
@@ -15,23 +15,23 @@ Built with coding agents: I write the specs, review the pull requests and their 
 
 ## If you have two minutes
 
-- [promptlang#39](https://github.com/matteogallo-ai/promptlang/pull/39): the AI linter measured at 30% precision, not distinguishable from the 20% bound, published as it came out.
-- [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32): an independent audit, 23 findings, each fixed, refuted or left open.
+- [promptlang#39](https://github.com/matteogallo-ai/promptlang/pull/39): the AI linter measured at 30% precision, not distinguishable from the 20% bound, published unchanged.
+- [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32): an audit by a context-free agent, 23 findings, each fixed, refuted or left open.
 - [RULES.md P1](RULES.md#p1-a-target-is-set-by-the-need-and-is-not-moved-to-fit-a-run-a-miss-is-published): the one target that moved, with the facts against it, set out to be challenged.
 
 ## The method in five principles
 
-Each principle is a rule of [RULES.md](RULES.md), and each proof is a pull request whose
+Each principle links to [RULES.md](RULES.md), and each proof is a pull request whose
 claim can be checked from GitHub.
 
-1. **A result is published as it came out** ([R7](RULES.md#r7-a-human-review-is-pre-registered-and-its-result-is-published-as-it-came-out)). The review plan is committed before the
+1. **A result is published unchanged** ([R7](RULES.md#r7-a-human-review-is-pre-registered-and-its-result-is-published-unchanged)). The review plan is committed before the
    review.
    Proof: [promptlang#39](https://github.com/matteogallo-ai/promptlang/pull/39) — the
-   pre-registered human review measured the AI linter's precision at 30% (12/40, 95% CI
-   18–45%), which does not distinguish it from the 20% lower bound already published.
+   pre-registered human review measured the AI linter's precision at 30% (12 correct flags out of 40),
+   which does not distinguish it from the 20% lower bound already published.
 
-2. **No agent report is trusted until something independent checks it** ([P2](RULES.md#p2-a-context-free-agent-audits-main-each-finding-is-fixed-refuted-or-left-open-in-writing)). A context-free
-   agent audits `main`; each finding is fixed, refuted or left open, in writing.
+2. **No agent report is trusted until a context-free agent checks it** ([P2](RULES.md#p2-a-context-free-agent-audits-main-each-finding-is-fixed-refuted-or-left-open-in-writing)).
+   That agent audits `main`; each finding is fixed, refuted or left open, in writing.
    Proof: [promptlang#32](https://github.com/matteogallo-ai/promptlang/pull/32) — 23
    findings, fixes in #23–#31, 5 refuted in whole or in part, with evidence.
 
@@ -46,7 +46,7 @@ claim can be checked from GitHub.
    whole suite with the clock at 2029 and at 2040 on every pull request. The red run before
    the fix (six tests failing at 2029) is reported in the PR; its log was not kept.
 
-5. **A rule exists only because something went wrong** ([R13](RULES.md#r13-a-human-reads-real-output-the-review-finds-what-tests-miss)). Each numbered rule in
+5. **A numbered rule (R1–R15) exists only because something went wrong** ([R13](RULES.md#r13-a-human-reads-real-output-the-review-finds-what-tests-miss)). Each numbered rule in
    [RULES.md](RULES.md) links to the incident that created it.
    Proof: my review of a live Praxis briefing found risk estimates labelled as
    first-party facts, which no test had caught; the validator was fixed and the review
@@ -63,8 +63,8 @@ claim can be checked from GitHub.
 
 ## Dates
 
-The three repos were built from August 2026. In early November (2026-11-02 to 2026-11-04)
-I had an independent agent audit Verity and PromptLang, and hardened all three; the linked
+The three repos have been built since August 2026. In early November (2026-11-02 to 2026-11-04)
+I had a context-free agent audit Verity and PromptLang, and hardened all three; the linked
 pull requests come from that pass, and the numbered rules are what it taught me. The repos
 show how far each rule is applied today. One target moved during that pass;
 [RULES.md P1](RULES.md#p1-a-target-is-set-by-the-need-and-is-not-moved-to-fit-a-run-a-miss-is-published)
