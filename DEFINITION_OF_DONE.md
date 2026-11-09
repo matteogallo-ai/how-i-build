@@ -1,9 +1,9 @@
-<!-- Source: ~/.claude/DEFINITION_OF_DONE.md, copied with one change: the F1 wording carries no job title. The agents read that file; this is the public copy. -->
+<!-- Source: ~/.claude/DEFINITION_OF_DONE.md, copied with three changes: the F1 wording carries no job title, the text is in the first person, and section F comes before G, in letter order. The agents read that file; this is the public copy. -->
 
-# Definition of Done — portfolio repo (Matteo)
+# My Definition of Done for a portfolio repo
 
 Sources: OpenSSF Scorecard · OpenSSF Best Practices Badge · SLSA / GitHub artifact attestations · OWASP Top 10 for LLM Applications 2025 · Model Cards (Mitchell et al., 2019) · Google SRE Production Readiness Review · 2026 LLM evaluation practice.
-A repo is "done" only when every line is checked, or marked N/A with a written reason, and section F is passed. Never declare done otherwise.
+I call a repo "done" only when every line is checked, or marked N/A with a written reason, and section F is passed.
 
 ## A. Repository and supply chain (OpenSSF Scorecard)
 - A1 main protected: PR required, required CI checks, no force-push, no deletion.
@@ -48,12 +48,12 @@ A repo is "done" only when every line is checked, or marked N/A with a written r
 - E5 SemVer tag + GitHub Release with notes for every release.
 - E6 Only dynamic badges that tell the truth (CI, Scorecard, release, license).
 
+## F. Closing
+- F1 A context-free agent audits the repo looking for the flaw; every finding is fixed or refuted in writing.
+- F2 OpenSSF Best Practices badge at "passing" (bestpractices.dev, which I self-certify).
+- F3 I can explain every checked line without notes.
+
 ## G. Above the bar (tests that are themselves tested)
 - G1 Property-based tests (Hypothesis / fast-check) on every parser, validator and input boundary; fuzzing on parsers (Scorecard Fuzzing check).
 - G2 Mutation testing (mutmut / Stryker) on the core modules: mutation score measured, committed, and surviving mutants explained or killed.
 - G3 GitHub Release per tag with attached, signed artefacts (attest-build-provenance) so Scorecard Signed-Releases scores; never publish an unsigned GitHub Release.
-
-## F. Closing
-- F1 A context-free agent audits the repo looking for the flaw; every finding is fixed or refuted in writing.
-- F2 OpenSSF Best Practices badge at "passing" (bestpractices.dev, self-certified by Matteo).
-- F3 Matteo can explain every checked line without notes.
