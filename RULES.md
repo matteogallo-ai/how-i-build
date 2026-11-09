@@ -61,7 +61,7 @@ directly, stays uncapped; the PR names it.
 
 ## Measurement
 
-### R7. A human review is pre-registered, and its result is published as it came out
+### R7. A human review is pre-registered, and its result is published unchanged
 **Incident.** The AI linter's published precision (20%, 44/217) was a lower bound, because
 categories nobody designed into a case counted as false alarms. The sample of 40 findings
 was drawn with a fixed seed and committed unanswered before any annotation. The answered
@@ -148,7 +148,7 @@ package file now uses the published form.
 ## Practices with no founding incident
 
 These two came from the Definition of Done and the playbook, not from an incident. They are
-listed apart, with cases where they were applied, because the README cites them.
+listed separately, with cases where they were applied, because the README cites them.
 
 ### P1. A target is set by the need and is not moved to fit a run; a miss is published
 **Applied.**
