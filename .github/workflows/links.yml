@@ -22,3 +22,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: scripts/check-links.sh
+      - name: The link check itself fails on a missing pinned commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/test-check-links.sh
