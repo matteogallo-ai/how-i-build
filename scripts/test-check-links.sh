@@ -11,9 +11,13 @@ pinned=0ef7e9f380ba6d180e2c0e88ff8ee51e1ead4ad9
 failures=0
 
 # expect <want: pass|fail> <name> <link>
+# A failure counts only if the script names this link: a non-zero exit alone would also
+# come from a fixture the regex does not match, which would make the case a false green.
 expect() {
   printf '[x](%s)\n' "$3" >"$tmp/case.md"
-  if ./check-links.sh "$tmp/case.md" >/dev/null 2>&1; then got=pass; else got=fail; fi
+  if out=$(./check-links.sh "$tmp/case.md" 2>&1); then got=pass
+  elif grep -qxF "FAIL $3" <<<"$out"; then got=fail
+  else got="error: $out"; fi
   if [ "$got" = "$1" ]; then echo "ok   $2"; else echo "FAIL $2 (want $1, got $got)"; failures=1; fi
 }
 
