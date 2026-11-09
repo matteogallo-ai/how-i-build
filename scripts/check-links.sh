@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Fails if a GitHub pull request, commit or file linked from the Markdown files does not
 # exist. It asks the GitHub API, which answers 404 for a missing object, rather than
-# fetching the page. Non-GitHub and relative links are not checked.
+# fetching the page. Non-GitHub and relative links are not checked. For a file link, the
+# pinned commit and the file are checked, not the #anchor: GitHub derives anchors from the
+# rendered headings, and copying that rule here would be guesswork.
 # Arguments: Markdown files to scan; default: the repo's top-level *.md.
 set -euo pipefail
 if [ $# -eq 0 ]; then cd "$(dirname "$0")/.." && set -- ./*.md; fi
@@ -11,7 +13,9 @@ links=$(grep -ohE 'https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(pull/[0-
 [ -n "$links" ] || { echo "no links found" >&2; exit 1; }
 
 while read -r url; do
-  path=${url#https://github.com/}
+  # The anchor must go: left in the API path, it turns the ?ref=<sha> appended below into
+  # part of the fragment, and the file is then read on the default branch.
+  path=${url%%#*}; path=${path#https://github.com/}
   repo=$(cut -d/ -f1-2 <<<"$path"); kind=$(cut -d/ -f3 <<<"$path"); rest=$(cut -d/ -f4- <<<"$path")
   case $kind in
     pull)   api="repos/$repo/pulls/$rest" ;;
