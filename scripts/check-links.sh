@@ -2,11 +2,12 @@
 # Fails if a GitHub pull request, commit or file linked from the Markdown files does not
 # exist. It asks the GitHub API, which answers 404 for a missing object, rather than
 # fetching the page. Non-GitHub and relative links are not checked.
+# Arguments: Markdown files to scan; default: the repo's top-level *.md.
 set -euo pipefail
-cd "$(dirname "$0")/.."
+if [ $# -eq 0 ]; then cd "$(dirname "$0")/.." && set -- ./*.md; fi
 
 fail=0
-links=$(grep -ohE 'https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(pull/[0-9]+|commit/[0-9a-f]{7,40}|blob/[0-9a-f]{40}/[^)]+)' ./*.md | sort -u)
+links=$(grep -ohE 'https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(pull/[0-9]+|commit/[0-9a-f]{7,40}|blob/[0-9a-f]{40}/[^)]+)' "$@" | sort -u)
 [ -n "$links" ] || { echo "no links found" >&2; exit 1; }
 
 while read -r url; do

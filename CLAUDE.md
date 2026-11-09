@@ -5,8 +5,9 @@ to the pull request, commit or file that proves it. Global standards: `~/.claude
 
 - `README.md`: the method and its proofs. `RULES.md`: rules and their incidents.
   `DECISIONS.md`: technical decisions and their state. `DEFINITION_OF_DONE.md`.
-- Check: `scripts/check-links.sh` (needs `gh`, logged in). CI runs it as the `check-links`
-  job on each push; each pull request to `main` is gated on it.
+- Check: `scripts/check-links.sh` (needs `gh`, logged in); its test:
+  `scripts/test-check-links.sh`. CI runs both in the `check-links` job on each push; each
+  pull request to `main` is gated on it.
 
 ## Appendix A — How coding agents must work in my repos
 
