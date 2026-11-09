@@ -3,7 +3,7 @@
 # My Definition of Done for a portfolio repo
 
 Sources: OpenSSF Scorecard · OpenSSF Best Practices Badge · SLSA / GitHub artifact attestations · OWASP Top 10 for LLM Applications 2025 · Model Cards (Mitchell et al., 2019) · Google SRE Production Readiness Review · 2026 LLM evaluation practice.
-I call a repo "done" only when every line is checked, or marked N/A with a written reason, and section F is passed.
+I call a repo "done" only when every line is checked, or marked N/A with a written reason, and section F is passed. I never call it done otherwise.
 
 ## A. Repository and supply chain (OpenSSF Scorecard)
 - A1 main protected: PR required, required CI checks, no force-push, no deletion.

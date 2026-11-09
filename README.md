@@ -5,8 +5,8 @@ Two systems and one experiment, the rules I build them by, and the pull request 
 The two systems are [Verity](https://github.com/matteogallo-ai/verity) (question answering
 over documents that cites the exact passage or refuses) and [PromptLang](https://github.com/matteogallo-ai/promptlang) (a typed
 language for LLM prompts, published on npm). The experiment is
-[Praxis](https://github.com/matteogallo-ai/praxis), a 7-stage analysis pipeline: compared
-blind with a single model call 9.8× cheaper, on one question, it did no better
+[Praxis](https://github.com/matteogallo-ai/praxis), a 7-stage analysis pipeline: on one question,
+the blind reviewer preferred a single model call 9.8× cheaper
 ([result](https://github.com/matteogallo-ai/praxis/blob/bfad47e21f0d191d5c7cf57993932a640c3453d2/README.md#status)). I decide what gets built and how it is
 judged: the architecture and its trade-offs, the definition of done, the evaluation
 protocols and the cost caps.
